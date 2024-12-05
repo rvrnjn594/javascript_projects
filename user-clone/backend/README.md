@@ -36,7 +36,7 @@ The response body is in JSON format and includes the following fields:
   - `email` (string, required): User's email address (must be a valid email)
   - `password` (string, required): User's password (minimum 6 characters)
 
-## /user/register endpoint
+## /user/login endpoint
 
 ### Description
 
