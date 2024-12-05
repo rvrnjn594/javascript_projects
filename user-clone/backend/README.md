@@ -1,4 +1,4 @@
-# Description
+# Backend API Documentation
 
 ## /user/register endpoint
 
@@ -28,5 +28,10 @@ The request body should be in JSON format and include the following fields:
 
 The response body is in JSON format and includes the following fields:
 
-- `token` (String): Token created by jwttoken, using only the \_id of the user trying to sign in
-- `user` (User object): The user that registered with their details
+- `token` (string): Token created by jwttoken, using only the \_id of the user trying to sign in
+- `user` (object): The user that registered with their details
+  - `fullname` (object)
+    - `firstname` (string, required): User's first name (minimum 3 character)
+    - `lastname` (string, optional): User's last name (minimum 3 characters)
+  - `email` (string, required): User's email address (must be a valid email)
+  - `password` (string, required): User's password (minimum 6 characters)
