@@ -14,7 +14,9 @@ module.exports.registerUser = async (req, res, next) => {
     if (await userModel.findOne({ email }))
       return res
         .status(401)
-        .json({ message: "User already registered with us." });
+        .json({
+          message: `User already registered with us with this ${email}`,
+        });
 
     const hashedPassword = await userModel.hashedPassword(password);
     const user = await userService.createUser({
@@ -24,9 +26,12 @@ module.exports.registerUser = async (req, res, next) => {
       password: hashedPassword,
     });
     const token = user.generateAuthToken();
-    res.status(200).json({ token, user });
+    return res.status(200).json({ token, user });
   } catch (err) {
     console.log(err);
+    return res
+      .status(401)
+      .json({ message: "Unauthorized data to create a user", err: err });
   }
 };
 

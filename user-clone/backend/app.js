@@ -8,6 +8,7 @@ const app = express();
 
 // Importing routes
 const userRoutes = require("./routes/user.route");
+const captainRoutes = require("./routes/captain.routes");
 
 const connectToDb = require("./db/database");
 
@@ -19,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/users", userRoutes);
+
+app.use("/captain", captainRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hi world");

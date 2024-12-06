@@ -68,3 +68,5 @@ The response body is in JSON format and includes the following fields:
     - `lastname` (string, optional): User's last name (minimum 3 characters)
   - `email` (string, required): User's email address (must be a valid email)
   - `password` (string, required): User's password (minimum 6 characters)
+
+# For other routes for users, captains etc, I have shared postman.
